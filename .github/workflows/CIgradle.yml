@@ -24,11 +24,11 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    - name: Build & Push Docker image
+    - name: Build and Push Docker image
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
        image: hongzhizhangzach/github-actions-demo
        tags: v1, latest
-       registry: hub.docker.com
+       registry: docker.io
        username: ${{ secrets.DOCKERHUB_USERNAME }}
        password: ${{ secrets.DOCKERHUB_PASSWORD }}
