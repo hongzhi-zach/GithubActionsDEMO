@@ -29,6 +29,7 @@ jobs:
       with:
        image: hongzhizhangzach/github-actions-demo
        tags: v1, latest
+       dockerfile: Dockerfile.ci
        registry: docker.io
        username: ${{ secrets.DOCKERHUB_USERNAME }}
        password: ${{ secrets.DOCKERHUB_PASSWORD }}
