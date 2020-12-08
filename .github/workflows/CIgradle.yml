@@ -29,6 +29,6 @@ jobs:
       with:
        image: hongzhizhangzach/github-actions-demo
        tags: v1, latest
-       registry: docker.io
+       registry: hub.docker.com
        username: ${{ secrets.DOCKERHUB_USERNAME }}
        password: ${{ secrets.DOCKERHUB_PASSWORD }}
