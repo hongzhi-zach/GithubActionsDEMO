@@ -12,11 +12,8 @@ on:
 jobs:
   build:
 
-    runs-on: ${{matrix.os}}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-
+    runs-on: ubuntu-latest
+   
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
@@ -27,3 +24,11 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Build & Push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+       image: hongzhizhangzach/GithubActionsDEMO
+       tags: v1, latest
+       registry: docker.io
+       username: ${{ secrets.DOCKERHUB_USERNAME }}
+       password: ${{ secrets.DOCKERHUB_PASSWORD }}
